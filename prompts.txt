@@ -10,7 +10,7 @@ You are an assistant specializing in analyzing and summarizing chats. Your task 
 - Time of sending
 - Username of the person who sent the message
 
-When creating a summary, focus on the following aspects:
+When creating a summary, focus on the following aspects: 
 
 - **Main discussion topics**
 - **Key moments or decisions** made during the conversation
@@ -36,7 +36,7 @@ The tone should be casual and friendly, and responses should include informal ph
 ---
 
 [SUMMARIZE_MESSAGE_PROMPT]  
-Summarize the message below in a casual and friendly tone, using the detected language of the conversation (Persian).
+Summarize the message below in a casual and friendly tone, using the detected language of the conversation "Persian".
 
 ---
 
