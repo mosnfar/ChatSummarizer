@@ -1,127 +1,130 @@
-[START]
-Добро пожаловать в чат-бота для анализа и управления беседами!
 
-Этот бот может помочь вам анализировать историю чата, обобщать разговоры и управлять функциями обработки естественного языка.
+[START]  
+Welcome to the chatbot for chat analysis and management!  
 
-Чтобы узнать больше о доступных командах, используйте /help.
+This bot can help you analyze chat history, summarize conversations, and manage natural language processing functions.  
 
-Удачи в использовании бота!
+To learn more about available commands, use /help.  
 
-[HELP]
-Доступные команды:
+Good luck using the bot!
 
-1. /start - Начало работы с ботом и приветственное сообщение.
-2. /help - Показать это сообщение с описанием всех доступных команд.
-3. /summarize [YYYY-MM-DD] [YYYY-MM-DD] - Обобщить сообщения чата за указанный период.
-4. /stats - Показать статистику чата.
-5. /ask <вопрос> - Задать вопрос по истории чата или о конкретном пользователе.
-6. /update_query_llm - Обновить функцию обработки естественного языка.
-7. /list_functions - Показать список доступных функций обработки естественного языка.
-8. /set_function - Выбрать активную функцию обработки естественного языка.
-9. /messages_by_day - Показать график количества сообщений по дням.
-10. /activity_by_hour - Показать график активности чата по часам.
-11. /message_length - Показать распределение длины сообщений в чате.
-12. /user_activity - Сравнить активность пользователей в чате.
-13. /word_trend <слово> - Показать тренд использования определенного слова в чате.
-14. /update_prompt - Обновить содержание промпта для текущего чата.
-15. /update_limit - Обновить лимит загрузки сообщений для определенной операции.
-16. /list_prompts - Показать список доступных промптов для текущего чата.
-17. /list_limits - Показать список текущих лимитов загрузки сообщений.
-18. /user_info - Получить информацию о конкретном пользователе.
+[HELP]  
+Available commands:
 
-Для получения дополнительной информации о конкретной команде, используйте ее с флагом --help.
-Например: /summarize --help
+1. /start - Start working with the bot and receive a welcome message.
+2. /help - Show this message with a description of all available commands.
+3. /summarize [YYYY-MM-DD] [YYYY-MM-DD] - Summarize chat messages for the specified period.
+4. /stats - Show chat statistics.
+5. /ask <question> - Ask a question about the chat history or a specific user.
+6. /update_query_llm - Update the natural language processing function.
+7. /list_functions - Show a list of available natural language processing functions.
+8. /set_function - Choose the active natural language processing function.
+9. /messages_by_day - Show a chart of message count by day.
+10. /activity_by_hour - Show a chart of chat activity by hour.
+11. /message_length - Show the distribution of message lengths in the chat.
+12. /user_activity - Compare user activity in the chat.
+13. /word_trend <word> - Show the trend of usage for a specific word in the chat.
+14. /update_prompt - Update the prompt content for the current chat.
+15. /update_limit - Update the message upload limit for a specific operation.
+16. /list_prompts - Show a list of available prompts for the current chat.
+17. /list_limits - Show a list of current message upload limits.
+18. /user_info - Get information about a specific user.
 
-[SUMMARIZE_HELP]
-Команда /summarize
+For more information on a specific command, use it with the --help flag.  
+For example: /summarize --help
 
-Использование: /summarize [начальная_дата] [конечная_дата]
+[SUMMARIZE_HELP]  
+/summarize Command  
 
-Эта команда обобщает сообщения в чате за указанный период. Если даты не указаны, будет обобщен текущий день.
+Usage: /summarize [start_date] [end_date]  
 
-Формат дат: YYYY-MM-DD (год-месяц-день)
+This command summarizes chat messages for the specified period. If no dates are specified, the current day will be summarized.
 
-Примеры:
-1. /summarize - обобщить сообщения за текущий день
-2. /summarize 2023-06-01 - обобщить сообщения за 1 июня 2023 года
-3. /summarize 2023-06-01 2023-06-30 - обобщить сообщения с 1 по 30 июня 2023 года
+Date format: YYYY-MM-DD (year-month-day)
 
-Бот проанализирует сообщения за указанный период и предоставит краткое обобщение основных тем и событий.
+Examples:  
+1. /summarize - summarize messages for the current day  
+2. /summarize 2023-06-01 - summarize messages for June 1, 2023  
+3. /summarize 2023-06-01 2023-06-30 - summarize messages from June 1 to June 30, 2023  
 
-Примечание: Количество обрабатываемых сообщений для обобщения можно настроить с помощью команды /update_limit.
+The bot will analyze the messages for the specified period and provide a brief summary of the main topics and events.  
 
-[ASK_HELP]
-Команда /ask
+Note: The number of messages processed for summarization can be adjusted using the /update_limit command.
 
-Использование:
-1. /ask <ваш_вопрос> - задать вопрос по истории чата
-2. /ask @username <ваш_вопрос> - задать вопрос о конкретном пользователе
-3. Ответить на сообщение пользователя командой /ask <ваш_вопрос> - задать вопрос о пользователе, на чье сообщение вы отвечаете
+[ASK_HELP]  
+/ask Command  
 
-Эта команда позволяет задать вопрос по истории чата или о конкретном пользователе. Бот проанализирует соответствующие данные и предоставит ответ на ваш вопрос.
+Usage:  
+1. /ask <your_question> - ask a question about the chat history  
+2. /ask @username <your_question> - ask a question about a specific user  
+3. Respond to a user’s message with /ask <your_question> - ask a question about the user whose message you are replying to  
 
-Примеры:
-1. /ask О чем говорили участники чата вчера?
-2. /ask @john Какие темы интересуют этого пользователя?
-3. Ответить на сообщение пользователя: /ask Какой стиль общения у этого пользователя?
+This command allows you to ask a question about the chat history or a specific user. The bot will analyze the relevant data and provide an answer to your question.
 
-Бот проанализирует историю чата или сообщения конкретного пользователя и предоставит ответ, основываясь на содержании предыдущих сообщений.
+Examples:  
+1. /ask What did the chat participants talk about yesterday?  
+2. /ask @john What topics is this user interested in?  
+3. Responding to a user's message: /ask What is this user's communication style?
 
-Примечание: Количество сообщений, учитываемых при ответе на вопросы, можно настроить с помощью команды /update_limit.
+The bot will analyze the chat history or messages of a specific user and provide an answer based on the content of previous messages.  
 
-[UPDATE_QUERY_LLM_HELP]
-Команда /update_query_llm
+Note: The number of messages considered when answering questions can be adjusted using the /update_limit command.
 
-Эта команда позволяет создать новую или обновить существующую функцию обработки естественного языка для текущего чата.
+[UPDATE_QUERY_LLM_HELP]  
+/update_query_llm Command  
 
-Процесс:
-1. Введите команду /update_query_llm
-2. Бот попросит вас ввести имя для новой функции. Имя не должно совпадать с существующими и не может быть 'default'.
-3. После ввода имени, отправьте текстовый файл (.txt) с кодом новой функции.
+This command allows you to create a new or update an existing natural language processing function for the current chat.  
 
-Функция должна называться query_llm и принимать один аргумент (prompt). Она должна возвращать строку.
+Process:  
+1. Enter the /update_query_llm command  
+2. The bot will prompt you to enter a name for the new function. The name should not match any existing ones and cannot be 'default'.  
+3. After entering the name, send a text file (.txt) with the code of the new function.  
 
-Пример содержимого файла:
+The function should be named `query_llm` and accept one argument (prompt). It should return a string.
 
+Example file content:
+
+```python
 def query_llm(prompt):
-    # Ваш код здесь
-    return "Ответ на запрос: " + prompt
+    # Your code here
+    return "Response to the query: " + prompt
+```
 
-Будьте осторожны при создании новых функций, так как они будут использоваться для обработки всех запросов в чате.
+Be cautious when creating new functions, as they will be used to process all requests in the chat.
 
-[UPDATE_PROMPT_HELP]
-Команда /update_prompt
+[UPDATE_PROMPT_HELP]  
+/update_prompt Command  
 
-Использование:
-1. Отправьте /update_prompt
-2. Введите имя промпта, который вы хотите обновить (например, ASK_PROMPT, SUMMARIZE_PROMPT)
-3. Введите новое содержание промпта
+Usage:  
+1. Send /update_prompt  
+2. Enter the name of the prompt you want to update (e.g., ASK_PROMPT, SUMMARIZE_PROMPT)  
+3. Enter the new content for the prompt  
 
-Эта команда позволяет настроить промпты, используемые для различных операций в текущем чате. Изменения будут сохранены и использованы для будущих операций только в этом чате.
+This command allows you to customize prompts used for various operations in the current chat. Changes will be saved and used for future operations only in this chat.
 
-[UPDATE_LIMIT_HELP]
-Команда /update_limit
+[UPDATE_LIMIT_HELP]  
+/update_limit Command  
 
-Использование:
-1. Отправьте /update_limit
-2. Введите имя лимита, который вы хотите обновить (например, summarize_limit, ask_limit, last_messages_limit)
-3. Введите новое значение для лимита (должно быть положительное целое число)
+Usage:  
+1. Send /update_limit  
+2. Enter the name of the limit you want to update (e.g., summarize_limit, ask_limit, last_messages_limit)  
+3. Enter the new value for the limit (must be a positive integer)  
 
-Эта команда позволяет настроить количество загружаемых сообщений для различных операций в текущем чате. Изменения будут сохранены и использованы для будущих операций только в этом чате.
+This command allows you to configure the number of messages to be uploaded for different operations in the current chat. Changes will be saved and used for future operations only in this chat.
 
-[USER_INFO_HELP]
-Команда /user_info
+[USER_INFO_HELP]  
+/user_info Command  
 
-Использование:
-1. /user_info @username - получить информацию о пользователе по его имени пользователя
-2. Ответить на сообщение пользователя командой /user_info - получить информацию о пользователе, на чье сообщение вы отвечаете
+Usage:  
+1. /user_info @username - get information about a user by their username  
+2. Respond to a user's message with /user_info - get information about the user whose message you are replying to  
 
-Эта команда позволяет получить подробную информацию о конкретном пользователе на основе его сообщений в чате.
+This command allows you to get detailed information about a specific user based on their messages in the chat.
 
-Примеры:
-1. /user_info @john
-2. Ответить на сообщение пользователя: /user_info
+Examples:  
+1. /user_info @john  
+2. Responding to a user's message: /user_info  
 
-Бот проанализирует сообщения пользователя и предоставит информацию о его стиле общения, интересах, активности в чате и других характеристиках.
+The bot will analyze the user's messages and provide information about their communication style, interests, activity in the chat, and other characteristics.  
 
-Примечание: Количество анализируемых сообщений пользователя можно настроить с помощью команды /update_limit.
+Note: The number of messages considered when analyzing a user can be adjusted using the /update_limit command.

@@ -8,7 +8,8 @@ from telethon import events
 from datetime import datetime
 from dotenv import load_dotenv
 import google.generativeai as genai
-from google.generativeai.types import GenerationConfig, HarmCategory, HarmBlockThreshold
+from google.generativeai.types.generation_types import GenerationConfig, GenerationConfigDict, GenerationConfigType
+from google.generativeai.types import HarmCategory, HarmBlockThreshold
 from enum import Enum, auto
 from typing import Dict, Callable, Any
 import ast
@@ -214,7 +215,7 @@ async def query_gemini(prompt, images=None):
 
     except Exception as e:
         logging.error(f"An error occurred while querying the LLM: {e}")
-        yield f"произошла ошибка {e}"
+        yield f"There is a problem, Please calm down: ```{e}```"
 
 
 def query_claude(prompt):
@@ -513,7 +514,7 @@ async def get_query_llm(chat_id):
 
 async def handle_llm_response(event, query_llm, prompt, can_stream, images=None):
     if can_stream:
-        response_message = await event.reply("Генерирую ответ...")
+        response_message = await event.reply("Generating response...")
         full_response = ''
         async for chunk in query_llm(prompt, images=images):
             await asyncio.sleep(5)
@@ -752,10 +753,10 @@ async def handle_ask(event, context):
                 prompt = prompts["SUMMARIZE_URL_PROMPT"]
                 question = re.sub(r'^/\w+(@\w+)?(\s+)?', '', message.text).strip()
                 if question:
-                    prompt = f"{url} \n" + prompt + f"\nТак же ответь на вопрос {question}"
+                    prompt = f"{url} \n" + prompt + f"\nAlso, answer the question {question}"
                 else:
                     prompt = f"{url} \n" + prompt
-                response_message = await event.reply("Генерирую ответ...")
+                response_message = await event.reply("Generating response...")
                 full_response = ''
                 sender_id = await get_sender_id(event)
                 command_handler.reset_user_state(sender_id)
@@ -774,7 +775,7 @@ async def handle_ask(event, context):
             prompts = load_chat_prompts(context["chat_id"])
             prompt = prompts["SUMMARIZE_IMAGE_PROMPT"]
             if question:
-                prompt = prompt + "\nТак же ответь на вопрос" + question
+                prompt = prompt + "\nAlso, answer the question" + question
             await handle_llm_response(event, query_llm, prompt, can_stream, images=images)
         elif images and not can_process_images:
             response = "The current query_llm function cannot process images. Please switch to a function that supports image processing."
