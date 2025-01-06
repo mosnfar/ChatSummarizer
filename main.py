@@ -57,7 +57,7 @@ os.makedirs(CHAT_LIMITS_DIR, exist_ok=True)
 DEFAULT_LIMITS = {
     'summarize_limit': 500,
     'ask_limit': 500,
-    'last_messages_limit': 500
+    'last_messages_limit': 1000
 }
 
 # Add this global variable to store users in ongoing dialogues
