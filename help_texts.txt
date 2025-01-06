@@ -115,7 +115,7 @@ Usage:
 This command allows you to configure the number of messages to be uploaded for different operations in the current chat. Changes will be saved and used for future operations only in this chat.
 
 [USER_INFO_HELP]  
-/user_info Command  
+/user_info Command
 
 Usage:  
 1. /user_info @username - get information about a user by their username  
