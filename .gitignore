@@ -6,3 +6,5 @@
 
 # Ignore all Telethon session files in the root directory
 /*.session
+*.sqlite
+chat_functions/*
