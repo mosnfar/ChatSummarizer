@@ -51,7 +51,7 @@ The bot will analyze the messages for the specified period and provide a brief s
 
 Note: The number of messages processed for summarization can be adjusted using the /update_limit command.
 
-[ASK_HELP]  
+[ASK_HELP]
 /ask Command  
 
 Usage:  
@@ -85,9 +85,11 @@ The function should be named `query_llm` and accept one argument (prompt). It sh
 Example file content:
 
 ```python
+...
 def query_llm(prompt):
     # Your code here
     return "Response to the query: " + prompt
+...
 ```
 
 Be cautious when creating new functions, as they will be used to process all requests in the chat.
